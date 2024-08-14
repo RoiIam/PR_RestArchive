@@ -1,0 +1,228 @@
+
+
+###
+GET http://localhost:3000
+Accept: application/json
+
+###
+#@host=http://localhost:3000
+
+
+###
+# @name GetAllCourses
+GET {{host}}/courses
+
+<> 2022-04-20T130126.200.json
+
+###
+# @name LoginTeacher
+GET {{host}}/teachers/auth/teacher1@email.com
+
+<> 2022-04-20T122201.200.json
+
+###
+# @name NewCourse
+POST {{host}}/courses
+content-type: application/json
+
+{
+  "title": "REST API for beginners2",
+  "slug": "REST-API-for-beginners2",
+  "description": "2. Nestjs course..."
+}
+###
+# @name NewCourse2
+POST {{host}}/courses
+content-type: application/json
+
+{
+  "title": "New Course 2",
+  "slug": "another-course",
+  "description": "2. Nestjs course..."
+}
+###
+# @name NewCourse3
+POST {{host}}/courses
+content-type: application/json
+
+{
+  "title": "New Course 3",
+  "slug": "course3",
+  "description": "3. Nestjs course..."
+}
+
+###
+# @name DelCourse
+DELETE {{host}}/courses/course3
+content-type: application/json
+
+###
+# @name GetOwnedCourses
+GET {{host}}/teachers/courses
+
+###
+# @name GetCourseBySlug
+GET {{host}}/courses/REST-API-for-beginners2
+
+<> 2022-04-20T164425.200.json
+
+###
+# @name AddLectureToCourse0
+POST {{host}}/lectures
+content-type: application/json
+
+{
+  "courseSlug": "REST-API-for-beginners2",
+  "slug": "lecture-01",
+  "title": "FirstLecture",
+  "description": "email@email4.com",
+  "url": "www.youtu.be/watch=1235"
+}
+###
+# @name AddLectureToCourse3
+POST {{host}}/lectures
+content-type: application/json
+
+{
+  "courseSlug": "course3",
+  "slug": "lectureFor3-01",
+  "title": "LectureS03E01",
+  "description": "email@email4.com",
+  "url": "www.youtu.be/watch=1235"
+}
+
+###
+# @name AddLectureToCourse3
+POST {{host}}/lectures
+content-type: application/json
+
+{
+  "courseSlug": "another-course",
+  "slug": "another-course-lecture",
+  "title": "SecondLectureAgain",
+  "description": "lalalaa",
+  "url": "www.youtu.be/watch=404040"
+}
+
+###
+# @name GetLecuresByCourseSlug
+GET {{host}}/lectures/c/another-course
+###
+# @name GetLecuresByCourseSlug2
+GET {{host}}/lectures/c/REST-API-for-beginners2
+
+<> 2022-04-20T171041.200.json
+<> 2022-04-20T170942.200.json
+<> 2022-04-20T170452.500.json
+<> 2022-04-20T170239.200.json
+<> 2022-04-20T170131.200.json
+<> 2022-04-20T165751.200.json
+<> 2022-04-20T165501.500.json
+<> 2022-04-20T165414.500.json
+<> 2022-04-20T164928.500.json
+<> 2022-04-20T164439.500.json
+
+###
+# @name GetLectures
+GET {{host}}/lectures
+
+###
+# @name NewStudent
+POST {{host}}/students
+content-type: application/json
+
+{
+  "firstName": "Json",
+  "lastName": "Api",
+  "email": "email@email4.com",
+  "role": 1
+}
+
+<> 2022-04-20T190412.404.json
+<> 2022-04-20T184241.404.json
+<> 2022-04-20T183951.404.json
+<> 2022-04-20T183227.404.json
+<> 2022-04-20T182331.404.json
+<> 2022-04-20T172829.201.json
+###
+# @name StudentJoinCourse
+POST {{host}}/students/c/
+content-type: application/json
+
+{
+  "courseSlug": "another-course",
+  "studentEmail": "email@email4.com"
+}
+###
+# @name StudentUnrollCourse
+POST {{host}}/students/c/unroll
+content-type: application/json
+
+{
+  "courseSlug": "another-course",
+  "studentEmail": "email@email4.com"
+}
+
+<> 2022-04-21T075048.404.json
+<> 2022-04-21T074556.404.json
+<> 2022-04-21T074244.404.json
+<> 2022-04-21T073455.404.json
+<> 2022-04-21T072950.404.json
+<> 2022-04-21T072246.404.json
+<> 2022-04-21T071811.404.json
+<> 2022-04-21T071227.404.json
+<> 2022-04-21T071114.200.json
+<> 2022-04-20T181031.200.json
+<> 2022-04-20T180826.404.json
+<> 2022-04-20T180817.404.json
+<> 2022-04-20T180655.404.json
+<> 2022-04-20T180544.404.json
+<> 2022-04-20T180224.404.json
+<> 2022-04-20T180208.404.json
+<> 2022-04-20T180133.404.json
+<> 2022-04-20T175859.404.json
+<> 2022-04-20T175815.404.json
+<> 2022-04-20T175717.404.json
+
+###
+# @name NewTeacher
+POST {{host}}/teachers
+content-type: application/json
+
+{
+  "firstName": "Mr",
+  "lastName": "Teacher",
+  "email": "teacher1@email.com",
+  "role": 2
+}
+<> 2022-04-20T102408.500.json
+
+
+###
+# @name NewTeacher2
+POST {{host}}/teachers
+content-type: application/json
+
+{
+  "firstName": "Mr",
+  "lastName": "Teacher2",
+  "email": "teacher2@email.com",
+  "role": 2
+}
+
+###
+# @name GetTeachers
+GET {{host}}/teachers
+
+###
+# @name GetStudent
+GET {{host}}/students/4
+
+###
+content-type: application/json
+
+###
+# @name LoginStudent
+GET {{host}}/students/auth/email@email1.com
+
+###
